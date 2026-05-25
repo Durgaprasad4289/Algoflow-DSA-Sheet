@@ -1,105 +1,120 @@
-# AlgoFlow — CSS Architecture & Project Structure
+# 🚀 AlgoFlow — Premium Frontend Architecture
 
-## Tech Stack
-
-| Layer | Choice |
-|---|---|
-| Framework | React 18 + Vite |
-| Routing | React Router v6 |
-| Fonts | Syne (display) · DM Sans (body) via Google Fonts |
-| Icons | Font Awesome 6 (CDN) |
-| Toasts | react-toastify |
-| Styling | Vanilla CSS with custom properties (no preprocessor) |
+Modern DSA preparation platform built with React + Vite featuring protected routes, smooth animations, reusable design systems, and SaaS-level UI.
 
 ---
 
-## Project Folder Structure
+## 🧠 Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| 🎨 Frontend | React 18 + Vite |
+| 🛣 Routing | React Router v6 |
+| 🎭 Styling | Vanilla CSS + CSS Variables |
+| 🔔 Toasts | react-toastify |
+| 🔤 Fonts | Syne + DM Sans |
+| 🧩 Icons | Font Awesome 6 |
+| 🔐 Auth | Protected Routes |
+
+---
+
+## 📁 Project Structure
 
 ```
 algoflow/
+│
 ├── public/
 │   └── favicon.ico
 │
 ├── src/
-│   ├── main.jsx                        ← Entry point; imports Base.css globally
-│   ├── App.jsx                         ← Router setup (BrowserRouter + routes)
-│   │
-│   ├── Base.css                        ← 🌐 GLOBAL — design tokens, reset, reveal
-│   │                                      animations, scrollbar, selection styles.
-│   │                                      Imported once in main.jsx.
-│   │
+│
+│   ├── main.jsx
+│   ├── App.jsx
+│   ├── Base.css
+│
 │   ├── assets/
 │   │   ├── hero-img.png
 │   │   ├── algoflow_icon.png
 │   │   ├── leetcode.png
 │   │   └── GeeksForGeeks.png
-│   │
+│
 │   ├── data/
-│   │   ├── data.js                     ← Problem sets keyed by slug
-│   │   └── data_topics.js              ← DSA_TOPICS array (carousel data)
-│   │
+│   │   ├── data.js
+│   │   └── data_topics.js
+│
 │   └── components/
 │       ├── Navbar.jsx
 │       ├── Home.jsx
 │       ├── Problems.jsx
 │       ├── ProblemType.jsx
-│       ├── Profile.jsx
 │       ├── Login.jsx
+│       ├── Profile.jsx
 │       ├── ProtectedRoute.jsx
-│       ├── Notfound.jsx
-│       │
-│       └── all_css_codes/              ← 🎨 Per-component stylesheets
-│           ├── Navbar.css              ← Glass sticky navbar, logo, nav links, auth pill
-│           ├── Home.css                ← Hero, orbs, stats, features grid, carousel
-│           ├── Problems.css            ← Topic list page (clickable h1 rows)
-│           ├── ProblemType.css         ← Per-topic problem table with checkbox
-│           ├── Login.css               ← Auth card, inputs, toast overrides
-│           ├── Profile.css             ← (to be added)
-│           └── Notfound.css            ← (to be added)
+│       └── Notfound.jsx
+│
+└── all_css_codes/
+    ├── Navbar.css
+    ├── Home.css
+    ├── Problems.css
+    ├── ProblemType.css
+    ├── Login.css
+    ├── Footer.css
+    └── cta-section.css
 ```
 
 ---
 
-## CSS Architecture
+## 🎨 CSS Architecture
 
-### Token hierarchy
+### 🌐 Global Design System
 
+`Base.css` acts as the single source of truth for the entire UI system.
+
+### 🎯 Design Tokens
+
+```css
+:root {
+   --color-bg:
+   --color-accent:
+   --gradient-primary:
+   --font-display:
+   --shadow-blue-lg:
+}
 ```
-Base.css  ←  single source of truth
-    │
-    ├── color tokens        --blue-*, --gray-*, --white
-    ├── semantic tokens     --color-bg, --color-border, --color-accent …
-    ├── gradient tokens     --gradient-primary, --gradient-soft, --gradient-mesh
-    ├── typography tokens   --font-display, --font-body, --text-*
-    ├── spacing tokens      --space-1 … --space-32
-    ├── radius tokens       --radius-sm … --radius-full
-    ├── shadow tokens       --shadow-xs … --shadow-blue-lg
-    ├── easing tokens       --ease-out, --ease-spring, --duration-*
-    └── footer tokens       --footer-bg, --footer-text, --footer-link …
-```
 
-Every component CSS file imports `Base.css` at the top and consumes only tokens — no hard-coded hex values except where unavoidable (e.g. toast overrides, footer dark palette locals).
+### 🧩 Token Categories
+
+| Token Type | Purpose |
+|------------|---------|
+| `--blue-*` | Brand Colors |
+| `--gray-*` | Neutral Palette |
+| `--gradient-*` | UI Gradients |
+| `--font-*` | Typography |
+| `--space-*` | Spacing System |
+| `--radius-*` | Border Radius |
+| `--shadow-*` | Elevation System |
+| `--duration-*` | Animation Timing |
 
 ---
 
-### Per-component stylesheet responsibilities
+## 🗂 Component Responsibilities
 
-| File | Owns |
-|---|---|
-| `Navbar.css` | Sticky glass bar · logo lockup · nav link active states · auth pill button · mobile collapse |
-| `Home.css` | Hero two-column layout · floating orbs · gradient heading · CTA button · stats bar · feature cards grid · infinite carousel track |
-| `Problems.css` | Full-page topic list · staggered row entrance animations · hover slide + accent bar · CSS counter row numbers |
-| `ProblemType.css` | Problem table grid · custom checkbox · checked row green tint + strikethrough · difficulty badge colours · platform icon buttons · mobile 2-row reflow |
-| `Login.css` | Centered auth card · ambient orbs · input focus rings · native validation states · submit shimmer button · toast skin overrides · mobile full-screen layout |
-| `Footer.css` | Dark navy shell · brand column · four-link columns grid · social icon buttons · bottom bar · heartbeat animation |
-| `cta-section.css` | Blue gradient CTA banner · pure-CSS orb decorations · white pill button |
+| File | Responsibility |
+|------|----------------|
+| `Navbar.css` | Sticky Glass Navbar |
+| `Home.css` | Hero + Features |
+| `Problems.css` | Topic List UI |
+| `ProblemType.css` | Problem Tables |
+| `Login.css` | Authentication UI |
+| `Footer.css` | Footer Layout |
+| `cta-section.css` | CTA Banner |
 
 ---
 
-## Route → Component → CSS map
+## 🛣 Route Mapping
 
-| Route | Component | CSS file |
-|---|---|---|
+| Route | Component | CSS |
+|-------|-----------|-----|
 | `/` | `Home.jsx` | `Home.css` |
 | `/problems` | `Problems.jsx` | `Problems.css` |
 | `/problems/:slug` | `ProblemType.jsx` | `ProblemType.css` |
@@ -107,45 +122,134 @@ Every component CSS file imports `Base.css` at the top and consumes only tokens 
 | `/login` | `Login.jsx` | `Login.css` |
 | `*` | `Notfound.jsx` | `Notfound.css` |
 
-> `/problems`, `/profile`, and `/problems/:slug` are behind `ProtectedRoute` — unauthenticated users are redirected to `/login`.
+---
+
+## 🔐 Protected Routes
+
+```jsx
+<ProtectedRoute>
+   <Problems />
+</ProtectedRoute>
+```
+
+**Protected Pages:**
+
+- 🔒 `/problems`
+- 🔒 `/profile`
+- 🔒 `/problems/:slug`
+
+> Unauthenticated users redirect to `/login`
 
 ---
 
-## Naming conventions
+## 🧠 Naming Conventions
 
 | Pattern | Usage |
-|---|---|
-| `.component-name` | Top-level wrapper per page/component |
-| `.component-name__element` | Child elements (loose BEM, no strict nesting) |
-| `.reveal .fade-left/right/up .zoom-in` | Scroll-triggered entrance animations (JS `IntersectionObserver`) |
-| `.delay-1` … `.delay-6` | Stagger delays on reveal children |
-| `.easy` `.medium` `.hard` | Difficulty colour modifiers on problem rows |
+|---------|-------|
+| `.component-name` | Main Wrapper |
+| `.component__element` | Child Elements |
+| `.delay-1` → `.delay-6` | Animation Delays |
+| `.easy` `.medium` `.hard` | Difficulty Styles |
 
 ---
 
-## Animation inventory
+## ✨ Animation System
 
-| Name | File | Trigger |
-|---|---|---|
-| `slide-in` | `Problems.css` | Page load — topic rows cascade in |
-| `row-in` | `ProblemType.css` | Page load — problem rows cascade in |
-| `orb-float` | `Home.css` | Continuous — hero background orbs |
-| `hero-float` | `Home.css` | Continuous — hero image levitation |
-| `scroll-left` | `Home.css` | Continuous — topic carousel marquee |
-| `card-in` | `Login.css` | Mount — auth card scale+fade in |
-| `heartbeat` | `Footer.css` | Continuous — ❤ icon in footer |
-| `.reveal` classes | `Base.css` | `IntersectionObserver` in `Home.jsx` |
-| `shimmer sweep` | `Login.css` | Hover — button light sweep |
+| Animation | File | Purpose |
+|-----------|------|---------|
+| `slide-in` | `Problems.css` | Topic Entrance |
+| `row-in` | `ProblemType.css` | Table Animation |
+| `orb-float` | `Home.css` | Floating Orbs |
+| `hero-float` | `Home.css` | Hero Animation |
+| `scroll-left` | `Home.css` | Infinite Carousel |
+| `card-in` | `Login.css` | Login Entrance |
+| `heartbeat` | `Footer.css` | Footer Animation |
+| `reveal-up` | `Base.css` | Scroll Reveal |
 
 ---
 
-## Responsive breakpoints
+## 📱 Responsive Breakpoints
 
-| Breakpoint | Behaviour |
-|---|---|
-| `> 1024px` | Full desktop layout — all columns visible |
-| `≤ 1024px` | Hero stacks vertically · feature grid → 2 col · heading wrapper stacks |
-| `≤ 768px` | Navbar links go static · problem rows → 2-row mobile card |
-| `≤ 640px` | Footer → single column · bottom bar stacks |
-| `≤ 480px` | Login card → full-screen · features grid → 1 col |
-| `≤ 380px` | Problem rows — topic tag hidden · ultra-compact padding |
+| Breakpoint | Behavior |
+|------------|----------|
+| `>1024px` | Full Desktop |
+| `≤1024px` | Hero Stack |
+| `≤768px` | Mobile Navbar |
+| `≤640px` | Footer Column |
+| `≤480px` | Fullscreen Login |
+| `≤380px` | Compact Rows |
+
+---
+
+## 🚀 UI Highlights
+
+### 🎯 Home Page Features
+
+- 🌌 Floating Gradient Orbs
+- ✨ Animated Hero
+- 🎠 Infinite Carousel
+- 📊 Stats Section
+- 🧩 Feature Grid
+- 🔥 SaaS-Level UI
+
+---
+
+## 🔔 Toast Notification System
+
+```js
+toast.success("Login Successful")
+```
+
+**Features:**
+
+- ✅ Success Toasts
+- ❌ Error Toasts
+- 🎨 Custom Styling
+- ⚡ Smooth Animation
+
+---
+
+## ⚙ Performance Optimizations
+
+- 🚀 Vite Fast Refresh
+- 🎯 CSS Variables
+- 🧹 Component Isolation
+- 📦 Lightweight Styling
+- 🔄 Reusable Tokens
+
+---
+
+## 📌 Future Improvements
+
+- 🌙 Dark / Light Theme
+- 📈 Progress Analytics
+- 🤖 AI Recommendations
+- 🏆 Contest Tracker
+- 📊 Dashboard
+- 🔥 JWT Authentication
+- 📱 PWA Support
+
+---
+
+## 🧑‍💻 Developer Goals
+
+- Maintainable Architecture
+- Reusable Components
+- Modern UI Patterns
+- Fast Performance
+- Scalable Styling System
+
+---
+
+## ❤️ Built For
+
+- DSA Preparation
+- Placement Training
+- Competitive Programming
+- Interview Readiness
+
+---
+
+## 🏁 Vision
+
+AlgoFlow aims to become a premium developer-first DSA platform with scalable frontend architecture, modern UI engineering, and elegant user experience.
