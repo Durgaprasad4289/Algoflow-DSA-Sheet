@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import "./all_css_codes/Login.css"
+import algoflow from "../assets/algoflow_icon.png"
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -52,6 +52,8 @@ export default function Login() {
         <form className="authentication">
             <ToastContainer autoClose={2000} pauseOnHover={false} />
             <h1>Login Page</h1>
+            <img src={algoflow} alt="AlgoFlow Logo" />
+            <p>Welcome to AlgoFlow</p>
             <label htmlFor="name" id='name-label'>Name :</label>
             <input type="text"
                 id="name"

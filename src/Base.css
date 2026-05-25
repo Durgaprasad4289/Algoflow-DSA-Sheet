@@ -105,6 +105,15 @@
   --duration-base:   260ms;
   --duration-slow:   480ms;
   --duration-reveal: 700ms;
+  --footer-bg:         #0d1526;
+  --footer-bg-logo:    #1a6cf5;
+  --footer-border:     rgba(255,255,255,0.08);
+  --footer-text:       rgba(255,255,255,0.88);
+  --footer-muted:      rgba(255,255,255,0.42);
+  --footer-link:       rgba(65, 221, 192, 0.55);
+  --footer-link-hover: rgba(255,255,255,0.90);
+  --footer-social-bg:  rgba(255,255,255,0.07);
+  --footer-social-hover: rgba(255,255,255,0.14);
 }
 
 /* ─── Reset ─────────────────────────────────────────────── */

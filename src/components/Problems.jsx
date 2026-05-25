@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate, NavLink } from 'react-router-dom'
 import Navbar from './Navbar'
+import './all_css_codes/Problems.css'
 
 export default function Problems() {
     const [topic, settopic] = useState('all')

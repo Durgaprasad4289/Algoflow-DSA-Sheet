@@ -225,15 +225,14 @@
   .logo h1 {
     display: none; /* icon only on mobile */
   }
-
-  .auth-links a {
-    padding: var(--space-2) var(--space-4);
-    font-size: var(--text-xs);
-  }
 }
 
 @media (max-width: 480px) {
   .nav-links a span {
     display: none;
+  }
+  .auth-links  {
+    margin-right: 40px;
+    transform: translateX(-25px);
   }
 }

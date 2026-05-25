@@ -6,6 +6,8 @@ import "./all_css_codes/Home.css";
 import { Link } from "react-router-dom";
 import { DSA_TOPICS } from "../data/data_topics";
 import hero from '../assets/hero-img.png'
+import algoflow from '../assets/algoflow_icon.png';
+
 export default function Home() {
 
     useEffect(() => {
@@ -267,6 +269,87 @@ export default function Home() {
                 </div>
             </section>
 
+            <section className="reveal cta-section">
+                <div className="cta-orb cta-orb--tl"></div>
+                <div className="cta-orb cta-orb--br"></div>
+                <div className="cta-inner">
+                    <h2 className="cta-heading">
+                        Ready to crack your<br />interviews?
+                    </h2>
+                    <p className="cta-sub">
+                        Join thousands of engineers who use AlgoFlow to stay consistent,<br />
+                        track progress, and land the roles they want.
+                    </p>
+                    <Link to="/problems" className="cta-btn">
+                        Start Your Journey With AlgoFlow  <i className="fa-solid fa-paper-plane"></i>
+                    </Link>
+                </div>
+            </section>
+
+            <footer className="footer">
+                <div className="footer-main">
+                    <div className="footer-brand">
+                        <div className="footer-logo">
+                            <div className="footer-logo-icon">
+                                <img src={algoflow} alt="AlgoFlow Logo" />
+                            </div>
+                            <span>AlgoFlow</span>
+                        </div>
+                        <p className="footer-tagline">
+                            The smart way to track,<br />
+                            review, and master DSA for<br />
+                            your next big interview.
+                        </p>
+                        <div className="footer-socials">
+                            <a href="https://x.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-x-twitter"></i></a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div className="footer-links-grid">
+                        <div className="footer-link-group">
+                            <h4>Product</h4>
+                            <ul>
+                                <li><Link to="/problems">Features</Link></li>
+                                <li><Link to="/problems">Pricing</Link></li>
+                                <li><Link to="/problems">Integrations</Link></li>
+                                <li><Link to="/problems">Demo</Link></li>
+                            </ul>
+                        </div>
+                        <div className="footer-link-group">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><Link to="/problems">About Us</Link></li>
+                                <li><Link to="/problems">Careers</Link></li>
+                                <li><Link to="/problems">Blog</Link></li>
+                                <li><Link to="/problems">Contact</Link></li>
+                            </ul>
+                        </div>
+                        <div className="footer-link-group">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><Link to="/problems">About Us</Link></li>
+                                <li><Link to="/problems">Careers</Link></li>
+                                <li><Link to="/problems">Blog</Link></li>
+                                <li><Link to="/problems">Contact</Link></li>
+                            </ul>
+                        </div>
+                        <div className="footer-link-group">
+                            <h4>Privacy</h4>
+                            <ul>
+                                <li><Link to="/problems">Privacy Notice</Link></li>
+                                <li><Link to="/problems">Terms of Service</Link></li>
+                                <li><Link to="/problems">Privacy Policy</Link></li>
+                                <li><Link to="/problems">Cookie Policy</Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="footer-bottom">
+                    <p className="footer-copy">© 2025 AlgoFlow. All rights reserved.</p>
+                    <p className="footer-love">Built with <i className="fas fa-heart"></i> for engineers everywhere</p>
+                </div>
+            </footer>
         </div>
     );
 }
