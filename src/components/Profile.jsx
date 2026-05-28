@@ -1,4 +1,5 @@
 import React from 'react'
+import useState from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./all_css_codes/Profile.css"
 import { Line } from 'react-chartjs-2';
@@ -15,7 +16,6 @@ export default function Profile() {
         );
         if (ok) {
             localStorage.removeItem("user_info");
-            alert("This is a demo application, so your progress will not be saved. Feel free to explore and enjoy!");
             navigate("/login", { replace: true });
         }
     };
@@ -24,12 +24,13 @@ export default function Profile() {
         const file = e.target.files[0];
         const url = URL.createObjectURL(file);
         setImg(url);
+        setUser((prevUser) => ({ ...prevUser, profilePicture: url }));
     }
     return (
         <div className="profile">
             <div className="profile-nav">
                 <Link to='/'>← Go to Home</Link>
-                <Link to='/problems'>← Go to Problems</Link>
+                <button onClick={() => navigate(-1)}>← Go Back</button>
             </div>
             <div className="profile-part">
                 <div className="profile-img">
